@@ -83,18 +83,21 @@
   services.xserver.desktopManager.gnome.enable = true;
 
   # Enable auto login, 4 lines needed because of https://github.com/NixOS/nixpkgs/issues/103746
-  services.xserver.displayManager.autoLogin.user = "bsuttor";
-  services.xserver.displayManager.autoLogin.enable = true;
+  services.displayManager.autoLogin.user = "bsuttor";
+  services.displayManager.autoLogin.enable = true;
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
 
   services.xserver.xautolock.time = 480;
 
   # Configure keymap in X11
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "be";
     # xkbVariant = "nodeadkeys";
   };
+  # Enable touchpad support (enabled default in most desktopManager).
+  services.libinput.enable = true;
+
 
   # Configure console keymap
   console.keyMap = "be-latin1";
@@ -118,9 +121,6 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  services.xserver.libinput.enable = true;
 
   #environment.systemPackages = [
   #  pkgs.maestral
@@ -180,6 +180,6 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "24.05"; # Did you read the comment?
 
 }
