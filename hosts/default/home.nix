@@ -57,6 +57,7 @@ in
     kubie
     kind
     stern
+    kubernetes-helm
     unstable.postman
 
     # networking tools
