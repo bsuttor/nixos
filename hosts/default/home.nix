@@ -89,7 +89,7 @@ in
     bitwarden
     bitwarden-cli
     # bitwarden-desktop
-    unstable.obsidian
+    vnote
     vlc
 
     # archives
