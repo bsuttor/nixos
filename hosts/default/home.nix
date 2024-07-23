@@ -40,6 +40,7 @@ in
     yq-go # yaml processor https://github.com/mikefarah/yq
     fzf # A command-line fuzzy finder
     gnumake
+    wget
 
     # system monitoring
     btop
