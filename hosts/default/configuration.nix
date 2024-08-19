@@ -50,7 +50,7 @@
       address = [ "10.9.199.6/32" ];
       listenPort = 51820; # to match firewall allowedUDPPorts (without this wg uses random port numbers)
       privateKeyFile = config.sops.secrets.wireguard_private_key.path;
-      dns = [ "10.9.201.53" "10.9.201.184" ];
+      dns = [ "10.9.0.53" "10.9.0.54" ];
 
       peers = [
         {
@@ -58,16 +58,17 @@
           # Forward all the traffic via VPN.
           # allowedIPs = [ "0.0.0.0/0" ];
           # Or forward only particular subnets
-          allowedIPs = [ "10.9.199.0/24" "10.9.201.0/24" "10.9.128.0/22" "10.9.200.0/24" "10.7.0.0/16" "10.8.0.0/16" "10.9.0.0/17" "10.10.0.0/16" ];
+          allowedIPs = [ "10.9.199.0/24" "10.9.201.0/24" "10.9.128.0/22" "10.9.200.0/24" "10.7.0.0/16" "10.8.0.0/16" "10.9.0.0/16" "10.10.0.0/16" ];
 
           # Set this to the server IP and port.
-          endpoint = "188.165.186.184:51820"; # ToDo: route to endpoint not automatically configured https://wiki.archlinux.org/index.php/WireGuard#Loop_routing https://discourse.nixos.org/t/solved-minimal-firewall-setup-for-wireguard-client/7577
+          endpoint = "p.imio.be:51820";
           persistentKeepalive = 16;
           presharedKey = "QucPplZhDxhb8KDdv593lVX0+7c5SWYVjrbSkIBYOOU=";
         }
       ];
     };
   };
+
 
   # Set your time zone.
   time.timeZone = "Europe/Brussels";
