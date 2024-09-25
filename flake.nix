@@ -14,26 +14,28 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, sops-nix, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, sops-nix, home-manager, ... }@inputs:
     let
       pkgs = import nixpkgs {
         localSystem = "x86_64-linux";
         config.allowUnfree = true;
       };
       unstable = import nixpkgs-unstable {
-        localSystem = "aarch64-darwin";
+        localSystem = "x86_64-linux";
         config.allowUnfree = true;
       };
     in {
-      nixosConfigurations.default = nixpkgs.lib.nixosSystem {
-        inherit pkgs;
-        system = "x86_64-linux";
-        specialArgs = {inherit inputs;};
-        modules = [
-          ./hosts/default/configuration.nix
-          sops-nix.nixosModules.sops
-          inputs.home-manager.nixosModules.default
-        ];
-      };
+      homeConfigurations = {
+        bsuttor = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          #system = "x86_64-linux";
+          extraSpecialArgs = {inherit inputs;};
+          modules = [
+            ./home-manager/home.nix
+            #sops-nix.nixosModules.sops
+            #inputs.home-manager.nixosModules.default
+          ];
+        };
     };
+  };
 }
