@@ -1,18 +1,21 @@
 # Nix config on ubuntu
-First copy id_ed25519 and id_rsa keys to your ~/.ssh folder and install utily libs to install computer
+First copy id_ed25519 and id_rsa keys to your ~/.ssh folder and install utilies libs to install computer
 ```bash
+cp /media/../* ~/.ssh
+chmod 600 ~/.ssh/id_rsa
+chmod 600 ~/.ssh/id_ed25519
 sudo apt install curl git
 ```
 
-## Install nix
+
+## Install nix and home manager
 
 mutli user:
 
 ```
 sh <(curl -L https://nixos.org/nix/install) --daemon
 
-sudo echo "experintal-features = nix-command flakes" >> /etc/nix/nix.conf
-#curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+sudo echo "experimental-features = nix-command flakes" >> /etc/nix/nix.conf
 
 nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
 nix-channel --update
@@ -27,8 +30,10 @@ nix run nixpkgs#ssh-to-age -- -private-key -i ~/.ssh/id_ed25519 > ~/.config/sops
 ```
 
 
-## Clone nix repo and start nix home manager
+## Clone nix repo, clean files managed by nix and start nix home manager
 ```
+rm ~/.profile
+rm ~/.bachrc
 git clone git@github.com:bsuttor/nix-home.git ~/nix
 
 home-manager switch --flake ~/nix/#$USER
@@ -44,17 +49,29 @@ cd ~/nix && sops secrets/secrets.yaml
 
 
 ## Install with my hand
-- chrome
-- bitwarden desktop
-- vscode
-- dropbox
+- chrome + gnome shell
 
+install deb from google and after: sudo apt-get install chrome-gnome-shell
+
+- bitwarden desktop
+```
+sudo snap install bitwarden
+```
+- vscode
+```
+sudo snap install code --classic
+```
+- dropbox
+```
+cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
+~/.dropbox-dist/dropboxd
+```
 ## To do after install
-- synchro firefox with my user
+- synchro firefox/chrome with my user
 - synchro vscode
 - install vpn ("import from file" works with wireguard on 24.04)
 - install docker engine: https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository
 docker daemon can't connect when installing it via home-manager.
 ```
-sudo usermod -aG docker your-user
+sudo usermod -aG docker $USER
 ```

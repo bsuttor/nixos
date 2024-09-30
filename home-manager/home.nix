@@ -12,7 +12,7 @@ in
   home.stateVersion = "24.05";
 
   sops = {
-    age.keyFile = "/home/bsuttor/.config/sops/age/keys.txt";
+    age.keyFile = "/home/bsuttor/.config/sops/age/key.txt";
     #defaultSymlinkPath = "/run/user/1000/secrets";
     #defaultSecretsMountPoint = "/run/user/1000/secrets.d";
   };
@@ -73,13 +73,15 @@ in
 
     # gnome
     gnome3.gnome-tweaks
+    copyq
+    gnomeExtensions.tophat
     # gnomeExtensions.gnome-clipboard
-    gnomeExtensions.clipboard-indicator
-    gnomeExtensions.vitals
+    # gnomeExtensions.clipboard-indicator
+    # gnomeExtensions.vitals
 
     # apps
     # firefox
-    # google-chrome
+    # google-chrome # not able to start chrome with nix on ubuntu
     # vscode
     libreoffice
     # xclip
@@ -122,7 +124,7 @@ in
   };
 
   services.flameshot.enable = true;
-  # services.dropbox.enable = true;
+  # services.dropbox.enable = true;  # not able to start dropbox with nix on ubuntu
   # services.nextcloud-client.enable = true;
   targets.genericLinux.enable = true;
   programs.home-manager.enable = true;

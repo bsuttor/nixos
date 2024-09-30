@@ -2,20 +2,21 @@
   dconf.settings = {
     # ...
     "org/gnome/shell" = {
-      favorite-apps = [
-        "firefox.desktop"
-        "google-chrome.desktop"
-        "code.desktop"
-        "org.gnome.Console.desktop"
-        "org.gnome.Nautilus.desktop"
-        "signal-desktop.desktop"
-        # "spotify.desktop"
-        # "virt-manager.desktop"
-      ];
+    #   favorite-apps = [
+    #     "firefox.desktop"
+    #     "google-chrome.desktop"
+    #     "code.desktop"
+    #     "org.gnome.Console.desktop"
+    #     "org.gnome.Nautilus.desktop"
+    #     "signal-desktop.desktop"
+    #     # "spotify.desktop"
+    #     # "virt-manager.desktop"
+    #   ];
       disable-user-extensions = false;
       enabled-extensions = [
-        "Vitals@CoreCoding.com"
-        "clipboard-indicator@tudmotu.com"
+         # "Vitals@CoreCoding.com"
+         # "clipboard-indicator@tudmotu.com"
+         "tophat@fflewddur.github.io"
       ];
     };
     "org/gnome/desktop/interface" = {
@@ -25,13 +26,16 @@
       show-battery-percentage = true;
       clock-show-weekday = true;
     };
-    "org/gnome/shell/extensions/vitals" = {
-      hot-sensors = [
-        "_processor_usage_"
-        "_memory_usage_"
-        "__network-rx_max__"
-        "__network-tx_max__"
-      ];
+    "org/gnome/desktop/peripherals/mouse" = {
+      natural-scroll = true;
     };
+    # "org/gnome/shell/extensions/vitals" = {
+    #   hot-sensors = [
+    #     "_processor_usage_"
+    #     "_memory_usage_"
+    #     "__network-rx_max__"
+    #     "__network-tx_max__"
+    #   ];
+    # };
   };
 }
