@@ -116,10 +116,14 @@ in
       key_path = config.sops.secrets.atuin_key.path;
     };
   };
-  services.flameshot.enable = true;
   programs.fzf = {
     enable = true;
     enableZshIntegration = true;
   };
+
+  services.flameshot.enable = true;
+  # services.dropbox.enable = true;
+  # services.nextcloud-client.enable = true;
+  targets.genericLinux.enable = true;
   programs.home-manager.enable = true;
 }
