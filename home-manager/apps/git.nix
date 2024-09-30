@@ -1,7 +1,7 @@
 {
   programs.git = {
     enable = true;
-    userName = "Benoit Suttor";
+    userName = "Benoît Suttor";
     userEmail = "ben.suttor@gmail.com";
     aliases = {
       st = "status";
