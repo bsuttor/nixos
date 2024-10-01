@@ -12,10 +12,11 @@
     #     # "spotify.desktop"
     #     # "virt-manager.desktop"
     #   ];
-      disable-user-extensions = false;
+      # disable-user-extensions = false;
       enabled-extensions = [
-         # "Vitals@CoreCoding.com"
+         "Vitals@CoreCoding.com"
          # "clipboard-indicator@tudmotu.com"
+         "clipboard-history@alexsaveau.dev"
          "tophat@fflewddur.github.io"
       ];
     };
@@ -29,13 +30,13 @@
     "org/gnome/desktop/peripherals/mouse" = {
       natural-scroll = true;
     };
-    # "org/gnome/shell/extensions/vitals" = {
-    #   hot-sensors = [
-    #     "_processor_usage_"
-    #     "_memory_usage_"
-    #     "__network-rx_max__"
-    #     "__network-tx_max__"
-    #   ];
-    # };
+    "org/gnome/shell/extensions/vitals" = {
+      hot-sensors = [
+        "_processor_usage_"
+        "_memory_usage_"
+        "__network-rx_max__"
+        "__network-tx_max__"
+      ];
+    };
   };
 }

@@ -44,6 +44,8 @@ in
     btop
     iotop # io monitoring
     iftop # network monitoring
+    gtop # required by tophat gnome extension
+    htop
 
     # dev tools
     git
@@ -73,11 +75,9 @@ in
 
     # gnome
     gnome3.gnome-tweaks
-    copyq
-    gnomeExtensions.tophat
-    # gnomeExtensions.gnome-clipboard
-    # gnomeExtensions.clipboard-indicator
-    # gnomeExtensions.vitals
+    # gnomeExtensions.tophat
+    gnomeExtensions.vitals
+    gnomeExtensions.clipboard-history
 
     # apps
     # firefox
