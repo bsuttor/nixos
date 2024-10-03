@@ -8,10 +8,10 @@
     autocd = true;
     shellAliases = {
       ll = "ls -lah";
-      switch-home-manager = "home-manager switch --flake ~/nix/#$USER";
-      eset-status = "sudo systemctl status eraagent.service";
-      eset-stop = "sudo systemctl stop eraagent.service";
-      eset-start = "sudo systemctl start eraagent.service";
+      switch-home-manager = "home-manager switch --flake ~/nix/#$USER && source ~/.zshrc";
+      eset-status = "sudo systemctl status eea.service";
+      eset-stop = "sudo systemctl stop eea.service && sudo systemctl stop eraagent.service";
+      eset-start = "sudo systemctl start eea.service  && sudo systemctl start eraagent.service";
       # switch-nix = "sudo nixos-rebuild switch --flake /home/bsuttor/nixos#default";
       # clean-nix = "sudo nixos-collect-garbage --delete-older-than 15d";
       k = "kubecolor";

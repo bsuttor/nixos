@@ -6,7 +6,7 @@
     clock24 = true;
     historyLimit = 100000;
     # mouse = true;
-    keyMode = "vi";
+    # keyMode = "vi";
     extraConfig = '' # used for less common options, intelligently combines if defined in multiple places.
     '';
   };
