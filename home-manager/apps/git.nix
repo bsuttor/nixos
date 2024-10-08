@@ -1,3 +1,4 @@
+{ config, pkgs, ... }:
 {
   programs.git = {
     enable = true;
@@ -30,5 +31,16 @@
     };
   };
 
+  programs.gh = {
+    enable = true;
+    extensions = [
+      # pkgs.master.gh-copilot
+      # pkgs.gh-dash
+    ];
+    settings = {
+      version = "1";
+      git_protocol = "ssh";
+    };
+  };
 
 }
