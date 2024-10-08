@@ -11,6 +11,17 @@ in
   home.homeDirectory = "/home/bsuttor";
   home.stateVersion = "24.05";
 
+  home.file.".buildout/default.cfg" = {
+    text = ''
+      [buildout]
+      extends-cache = /home/bsuttor/.buildout/extends
+      download-cache = /home/bsuttor/.buildout/downloads
+      eggs-directory = /home/bsuttor/.buildout/eggs
+      develop-eggs-directory = /home/bsuttor/.buildout/develop-eggs
+      find-links = /home/bsuttor/.buildout/extends
+      '';
+  };
+
   sops = {
     age.keyFile = "/home/bsuttor/.config/sops/age/key.txt";
     #defaultSymlinkPath = "/run/user/1000/secrets";
