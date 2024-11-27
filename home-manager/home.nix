@@ -34,6 +34,7 @@ in
     ./apps/direnv.nix
     ./apps/git.nix
     ./apps/gnome.nix
+    ./apps/ripgrep.nix
     ./apps/tmux.nix
     ./apps/vim.nix
     ./apps/vscode.nix
@@ -44,7 +45,6 @@ in
     sops
     neofetch
     # utils
-    ripgrep # recursively searches directories for a regex pattern
     jq # A lightweight and flexible command-line JSON processor
     yq-go # yaml processor https://github.com/mikefarah/yq
     fzf # A command-line fuzzy finder
