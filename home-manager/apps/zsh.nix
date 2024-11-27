@@ -15,6 +15,7 @@
       # switch-nix = "sudo nixos-rebuild switch --flake /home/bsuttor/nixos#default";
       # clean-nix = "sudo nixos-collect-garbage --delete-older-than 15d";
       k = "kubecolor";
+      rg = "rg --color=always -L --no-ignore --smart-case";
     };
     history = {
       size = 100000;

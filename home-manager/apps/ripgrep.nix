@@ -2,6 +2,10 @@
 {
   programs.ripgrep = {
     enable = true;
-    arguments = "-L --no-ignore";
+    arguments = [
+        "-L"
+        "--no-ignore"
+        "--smart-case"
+    ];
   };
 }
