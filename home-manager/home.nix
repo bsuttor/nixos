@@ -62,13 +62,18 @@ in
     git
     tig
     direnv
+    unstable.postman
+
+    # Kubernetes
     kubectl
     kubecolor
     kubie
     kind
     stern
     kubernetes-helm
-    unstable.postman
+    kubectl-klock
+    kubectl-cnpg
+    krew
 
     # networking tools
     mtr # A network diagnostic tool
@@ -138,7 +143,7 @@ in
     enable = true;
     enableZshIntegration = true;
   };
-  # services.flameshot.enable = true;   # not able to start flameshot from tray (only on commande line) with nix on ubuntu
+  # services.flameshot.enable = true;   # not able to start flameshot from tray (only on command line) with nix on ubuntu
   # services.dropbox.enable = true;  # not able to start dropbox with nix on ubuntu
   # services.nextcloud-client.enable = true;
   targets.genericLinux.enable = true;
