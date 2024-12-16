@@ -50,6 +50,7 @@ in
     fzf # A command-line fuzzy finder
     gnumake
     wget
+    ffmpeg
 
     # system monitoring
     btop
@@ -63,6 +64,7 @@ in
     tig
     direnv
     unstable.postman
+    volta
 
     # Kubernetes
     kubectl

@@ -14,7 +14,7 @@
     #   ];
       # disable-user-extensions = false;
       enabled-extensions = [
-         "Vitals@CoreCoding.com"
+         # "Vitals@CoreCoding.com"
          # "clipboard-indicator@tudmotu.com"
          "clipboard-history@alexsaveau.dev"
          "tophat@fflewddur.github.io"
