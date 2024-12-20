@@ -6,9 +6,8 @@
     clock24 = true;
     historyLimit = 100000;
     # mouse = true;
-    # keyMode = "vi";
-    extraConfig = '' # used for less common options, intelligently combines if defined in multiple places.
-    '';
+    keyMode = "vi";
+    extraConfig = "bind  %  split-window -h -c \"#{pane_current_path}\"\nbind '\"' split-window -v -c \"#{pane_current_path}\"";
   };
 
 
