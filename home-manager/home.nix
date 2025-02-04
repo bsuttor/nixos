@@ -103,7 +103,7 @@ in
     # vscode
     libreoffice
     # xclip
-    signal-desktop
+    # signal-desktop
     bitwarden
     bitwarden-cli
     # bitwarden-desktop
