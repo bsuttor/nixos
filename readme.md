@@ -51,6 +51,13 @@ cd ~/nix && sops secrets/secrets.yaml
 ### Use secret with home manager
 
 
+## Update
+
+```bash
+cd ~/nix && nix flake update
+```
+
+
 ## Install with my hand
 - chrome + gnome shell
 
