@@ -18,12 +18,12 @@
       rg = "rg --color=always -L --no-ignore --smart-case";
     };
     history = {
-      size = 100000;
+      size = 1000000;
       path = "${config.xdg.dataHome}/zsh/history";
     };
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "sudo" "tmux" "docker" "docker-compose" "kubectl" ];
+      plugins = [ "git" "sudo" "docker" "docker-compose" "kubectl" ];
       theme = "robbyrussell";
     };
   };

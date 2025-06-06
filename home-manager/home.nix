@@ -35,7 +35,7 @@ in
     ./apps/git.nix
     ./apps/gnome.nix
     ./apps/ripgrep.nix
-    ./apps/tmux.nix
+    # ./apps/tmux.nix
     ./apps/vim.nix
     ./apps/vscode.nix
     ./apps/zsh.nix
@@ -63,7 +63,7 @@ in
     git
     tig
     direnv
-    unstable.postman
+    # unstable.postman
     volta
 
     # Kubernetes
@@ -102,6 +102,7 @@ in
     # google-chrome # not able to start chrome with nix on ubuntu
     # vscode
     libreoffice
+    # ghostty
     # xclip
     # signal-desktop
     bitwarden
@@ -145,6 +146,18 @@ in
     enable = true;
     enableZshIntegration = true;
   };
+
+  programs.uv = {
+    enable = true;
+    python-downloads = "manual";
+    # python-preference = "only-system";
+  };
+
+  programs.ghostty = {
+    enable = true;
+    installVimSyntax = true;
+  };
+
   # services.flameshot.enable = true;   # not able to start flameshot from tray (only on command line) with nix on ubuntu
   # services.dropbox.enable = true;  # not able to start dropbox with nix on ubuntu
   # services.nextcloud-client.enable = true;
