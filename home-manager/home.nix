@@ -156,6 +156,12 @@ in
   programs.ghostty = {
     enable = true;
     installVimSyntax = true;
+    # keybind = [
+    #   "ctrl+h=goto_split:left"
+    #   "ctrl+l=goto_split:right"
+    #   "ctrl+k=goto_split:up"
+    #   "ctrl+j=goto_split:down"
+    # ];
   };
 
   # services.flameshot.enable = true;   # not able to start flameshot from tray (only on command line) with nix on ubuntu
