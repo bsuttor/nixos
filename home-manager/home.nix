@@ -9,7 +9,7 @@ in
 {
   home.username = "bsuttor";
   home.homeDirectory = "/home/bsuttor";
-  home.stateVersion = "24.05";
+  home.stateVersion = "25.05";
 
   home.file.".buildout/default.cfg" = {
     text = ''
@@ -92,7 +92,7 @@ in
     # maestral-gui
 
     # gnome
-    gnome3.gnome-tweaks
+    gnome-tweaks
     # gnomeExtensions.tophat
     gnomeExtensions.vitals
     gnomeExtensions.clipboard-history
@@ -149,7 +149,7 @@ in
 
   programs.uv = {
     enable = true;
-    python-downloads = "manual";
+    # python-downloads = "manual";
     # python-preference = "only-system";
   };
 
