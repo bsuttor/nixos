@@ -12,13 +12,15 @@ sudo apt install curl git
 
 mutli user:
 
-```
+```bash
 sh <(curl -L https://nixos.org/nix/install) --daemon
 
 sudo -i
 echo "experimental-features = nix-command flakes" >> /etc/nix/nix.conf
 echo "trusted-users = root bsuttor" >> /etc/nix/nix.conf
 exit
+
+# restart terminal
 
 nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
 nix-channel --update
