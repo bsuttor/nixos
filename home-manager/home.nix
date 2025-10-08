@@ -51,7 +51,7 @@ in
     gnumake
     wget
     ffmpeg
-
+    nodejs_24
     # system monitoring
     btop
     iotop # io monitoring
@@ -120,6 +120,7 @@ in
 
     # ia
     ollama
+    gemini-cli
   ];
 
   home.sessionVariables = {
