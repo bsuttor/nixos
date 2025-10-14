@@ -51,7 +51,7 @@ in
     gnumake
     wget
     ffmpeg
-    nodejs_24
+    nodejs_22
     # system monitoring
     btop
     iotop # io monitoring
