@@ -52,6 +52,7 @@ in
     wget
     ffmpeg
     nodejs_22
+    pnpm_9
     # system monitoring
     btop
     iotop # io monitoring
@@ -68,7 +69,7 @@ in
 
     # Kubernetes
     kubectl
-    kubecolor
+    #kubecolor
     kubie
     kind
     stern
@@ -126,7 +127,7 @@ in
 
   home.sessionVariables = {
     EDITOR = "nvim";
-    ZSH_TMUX_AUTOSTART = "true";
+    ZSH_TMUX_AUTOSTART = "false";
   };
 
   sops.secrets.atuin_key = {
@@ -158,12 +159,16 @@ in
   programs.ghostty = {
     enable = true;
     installVimSyntax = true;
-    # keybind = [
-    #   "ctrl+h=goto_split:left"
-    #   "ctrl+l=goto_split:right"
-    #   "ctrl+k=goto_split:up"
-    #   "ctrl+j=goto_split:down"
-    # ];
+    enableZshIntegration = true;
+    settings = {
+      theme = "catppuccin-mocha";
+      keybind = [
+        "super+ctrl+h=goto_split:left"
+        "super+ctrl+l=goto_split:right"
+        "super+ctrl+k=goto_split:up"
+        "super+ctrl+j=goto_split:down"
+      ];
+    };
   };
 
   # services.flameshot.enable = true;   # not able to start flameshot from tray (only on command line) with nix on ubuntu
