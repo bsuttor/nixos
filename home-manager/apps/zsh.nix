@@ -14,7 +14,7 @@
       eset-start = "sudo systemctl start eea.service  && sudo systemctl start eraagent.service";
       # switch-nix = "sudo nixos-rebuild switch --flake /home/bsuttor/nixos#default";
       # clean-nix = "sudo nixos-collect-garbage --delete-older-than 15d";
-      k = "kubecolor";
+      # k = "kubecolor"; # k is used by kubectl plugin
       rg = "rg --color=always -L --no-ignore --smart-case";
     };
     history = {
@@ -23,9 +23,17 @@
     };
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "sudo" "docker" "docker-compose" "kubectl" ];
+      plugins = [ "git" "sudo" "docker" "docker-compose" "kubectl" "pyenv"  "fzf" "colorize" "emoji" "helm" "opentofu"];
       theme = "robbyrussell";
     };
+    loginExtra = ''
+      export PYENV_ROOT="$HOME/.pyenv"
+      export PATH="$PYENV_ROOT/bin:$PATH"
+    '';
+    # Optional: interactive shell initialization
+    initContent = ''
+      eval "$(pyenv init --path)"
+    '';
   };
   programs.bash.enable = true;
   programs.bash.initExtra = ''
