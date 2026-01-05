@@ -60,6 +60,9 @@ in
     gtop # required by tophat gnome extension
     htop
 
+    mdcat
+    tailscale
+
     # dev tools
     git
     tig
