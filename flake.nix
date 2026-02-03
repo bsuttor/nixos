@@ -12,6 +12,9 @@
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    llm-agents = {
+      url = "github:numtide/llm-agents.nix";
+    };
   };
 
   outputs = { self, nixpkgs, nixpkgs-unstable, sops-nix, home-manager, ... }@inputs:

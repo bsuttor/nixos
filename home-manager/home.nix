@@ -5,6 +5,7 @@ let
     # Uncomment this if you need an unfree package from unstable.
     config.allowUnfree = true;
   };
+  llm-agents = inputs.llm-agents.packages.${pkgs.system};
 in
 {
   home.username = "bsuttor";
@@ -80,6 +81,10 @@ in
     kubectl-klock
     kubectl-cnpg
     krew
+    kubernetes-helm
+    kubernetes-helmPlugins.helm-diff
+    kubernetes-helmPlugins.helm-secrets
+    kubernetes-helmPlugins.helm-unittest
 
     # networking tools
     mtr # A network diagnostic tool
@@ -125,7 +130,9 @@ in
 
     # ia
     ollama
-    gemini-cli
+    llm-agents.gemini-cli
+    llm-agents.claude-code
+    llm-agents.happy-coder
   ];
 
   home.sessionVariables = {
