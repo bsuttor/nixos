@@ -17,6 +17,7 @@
       vim-airline
       vim-elixir
       vim-nix
+      copilot-vim
     ];
     extraConfig = ''
       colorscheme retrobox
