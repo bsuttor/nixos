@@ -23,6 +23,31 @@ in
       '';
   };
 
+  home.file.".local/bin/takescreenshotfull" = {
+    executable = true;
+    text = ''
+      #!/bin/bash
+      SCREENSHOT_DIR="$HOME/Pictures/Screenshots"
+      BEFORE=$(ls -t "$SCREENSHOT_DIR"/*.png 2>/dev/null | head -1)
+
+      gdbus call --session \
+        --dest org.freedesktop.portal.Desktop \
+        --object-path /org/freedesktop/portal/desktop \
+        --method org.freedesktop.portal.Screenshot.Screenshot \
+        "" "{'interactive': <true>}" 2>/dev/null
+
+      for i in $(seq 1 30); do
+        AFTER=$(ls -t "$SCREENSHOT_DIR"/*.png 2>/dev/null | head -1)
+        if [ "$AFTER" != "$BEFORE" ] && [ -n "$AFTER" ]; then
+          sleep 0.3
+          QT_QPA_PLATFORM=xcb ksnip -e "$AFTER"
+          exit 0
+        fi
+        sleep 1
+      done
+    '';
+  };
+
   sops = {
     age.keyFile = "/home/bsuttor/.config/sops/age/key.txt";
     #defaultSymlinkPath = "/run/user/1000/secrets";
@@ -120,6 +145,7 @@ in
     # bitwarden-desktop
     # vnote
     vlc
+    ksnip
 
     # archives
     zip
@@ -181,7 +207,10 @@ in
     };
   };
 
-  # services.flameshot.enable = true;   # not able to start flameshot from tray (only on command line) with nix on ubuntu
+  # services.flameshot = {
+  #   enable = true;   # not able to start flameshot from tray (only on command line) with nix on ubuntu
+  #   package = unstable.flameshot;
+  # };
   # services.dropbox.enable = true;  # not able to start dropbox with nix on ubuntu
   # services.nextcloud-client.enable = true;
   targets.genericLinux.enable = true;
