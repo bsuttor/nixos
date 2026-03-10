@@ -23,17 +23,9 @@
     };
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "sudo" "docker" "docker-compose" "kubectl" "pyenv"  "fzf" "colorize" "emoji" "helm" "opentofu"];
+      plugins = [ "git" "sudo" "docker" "docker-compose" "kubectl" "fzf" "colorize" "emoji" "helm" "opentofu"];
       theme = "robbyrussell";
     };
-    loginExtra = ''
-      export PYENV_ROOT="$HOME/.pyenv"
-      export PATH="$PYENV_ROOT/bin:$PATH"
-    '';
-    # Optional: interactive shell initialization
-    initContent = ''
-      eval "$(pyenv init --path)"
-    '';
   };
   programs.bash.enable = true;
   programs.bash.initExtra = ''
