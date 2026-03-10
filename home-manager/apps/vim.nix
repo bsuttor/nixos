@@ -4,6 +4,10 @@
     enable = true;
     viAlias = true;
     vimAlias = true;
+    extraPackages = with pkgs; [
+      wl-clipboard
+      xclip
+    ];
     plugins = with pkgs.vimPlugins; [
       ctrlp
       editorconfig-vim
@@ -36,7 +40,7 @@
       set hlsearch
       nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
 
-      set clipboard=unnamed
+      set clipboard=unnamedplus
       set expandtab
       set shiftwidth=4
       set tabstop=4
