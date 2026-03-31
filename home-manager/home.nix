@@ -6,6 +6,16 @@ let
     config.allowUnfree = true;
   };
   llm-agents = inputs.llm-agents.packages.${pkgs.system};
+  claude-desktop-unwrapped = inputs.claude-desktop-debian.packages.${pkgs.system}.claude-desktop;
+  claude-desktop = pkgs.symlinkJoin {
+    name = "claude-desktop";
+    paths = [ claude-desktop-unwrapped ];
+    buildInputs = [ pkgs.makeWrapper ];
+    postBuild = ''
+      wrapProgram $out/bin/claude-desktop \
+        --add-flags "--no-sandbox"
+    '';
+  };
 in
 {
   home.username = "bsuttor";
@@ -159,6 +169,7 @@ in
     llm-agents.gemini-cli
     llm-agents.claude-code
     llm-agents.happy-coder
+    claude-desktop
   ];
 
   home.sessionVariables = {
