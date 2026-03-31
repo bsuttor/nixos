@@ -75,6 +75,7 @@ in
     ./apps/vim.nix
     ./apps/vscode.nix
     ./apps/zsh.nix
+    ./apps/nvpn.nix
   ];
 
   home.packages = with pkgs; [
