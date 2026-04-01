@@ -198,6 +198,13 @@ in
     enableZshIntegration = true;
   };
 
+  home.file."${config.xdg.dataHome}/pyenv/plugins/pyenv-virtualenv".source = pkgs.fetchFromGitHub {
+    owner = "pyenv";
+    repo = "pyenv-virtualenv";
+    rev = "v1.2.4";
+    sha256 = "sha256-NgtowwE1T5NoiYiL18vdpYumVuPSWoDCOyP2//d+uHk=";
+  };
+
   programs.uv = {
     enable = true;
     # python-downloads = "manual";
