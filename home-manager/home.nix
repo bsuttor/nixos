@@ -169,13 +169,14 @@ in
     ollama
     llm-agents.gemini-cli
     llm-agents.claude-code
-    llm-agents.happy-coder
-    claude-desktop
+    # llm-agents.happy-coder
+    # claude-desktop
   ];
 
   home.sessionVariables = {
     EDITOR = "nvim";
     ZSH_TMUX_AUTOSTART = "false";
+    GDK_BACKEND = "x11";
   };
 
   sops.secrets.atuin_key = {
