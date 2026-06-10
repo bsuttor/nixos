@@ -41,12 +41,18 @@
     "org/gnome/settings-daemon/plugins/media-keys" = {
       custom-keybindings = [
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
       ];
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
       name = "Screenshot";
       command = "/home/bsuttor/.local/bin/takescreenshotfull";
       binding = "Print";
+    };
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
+      name = "Ghostty";
+      command = "ghostty";
+      binding = "<Primary><Alt>t";
     };
   };
 }

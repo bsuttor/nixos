@@ -169,6 +169,7 @@ in
     ollama
     llm-agents.gemini-cli
     llm-agents.claude-code
+    llm-agents.rtk
     # llm-agents.happy-coder
     # claude-desktop
   ];
@@ -176,8 +177,14 @@ in
   home.sessionVariables = {
     EDITOR = "nvim";
     ZSH_TMUX_AUTOSTART = "false";
-    GDK_BACKEND = "x11";
+    # GDK_BACKEND = "x11";
+    # LIBGL_ALWAYS_SOFTWARE = "1";
   };
+
+  # systemd.user.sessionVariables = {
+  #   GDK_BACKEND = "x11";
+  # };
+
 
   sops.secrets.atuin_key = {
     sopsFile = ../secrets/secrets.yaml;
@@ -214,7 +221,7 @@ in
 
   programs.ghostty = {
     enable = true;
-    installVimSyntax = true;
+    package = unstable.ghostty;
     enableZshIntegration = true;
     settings = {
       theme = "catppuccin-mocha";
@@ -226,6 +233,32 @@ in
       ];
     };
   };
+
+  # home.file.".config/ghostty/themes/catppuccin-mocha".text = ''
+  #   palette = 0=#45475a
+  #   palette = 1=#f38ba8
+  #   palette = 2=#a6e3a1
+  #   palette = 3=#f9e2af
+  #   palette = 4=#89b4fa
+  #   palette = 5=#f5c2e7
+  #   palette = 6=#94e2d5
+  #   palette = 7=#a6adc8
+  #   palette = 8=#585b70
+  #   palette = 9=#f38ba8
+  #   palette = 10=#a6e3a1
+  #   palette = 11=#f9e2af
+  #   palette = 12=#89b4fa
+  #   palette = 13=#f5c2e7
+  #   palette = 14=#94e2d5
+  #   palette = 15=#bac2de
+  #   background = 1e1e2e
+  #   foreground = cdd6f4
+  #   cursor-color = f5e0dc
+  #   cursor-text = 11111b
+  #   selection-background = 353749
+  #   selection-foreground = cdd6f4
+  #   split-divider-color = 313244
+  # '';
 
   # services.flameshot = {
   #   enable = true;   # not able to start flameshot from tray (only on command line) with nix on ubuntu
