@@ -169,7 +169,7 @@ in
     ollama
     llm-agents.gemini-cli
     llm-agents.claude-code
-    llm-agents.rtk
+    # llm-agents.rtk
     # llm-agents.happy-coder
     # claude-desktop
   ];
