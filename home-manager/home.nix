@@ -223,6 +223,7 @@ in
         "super+ctrl+l=goto_split:right"
         "super+ctrl+k=goto_split:up"
         "super+ctrl+j=goto_split:down"
+        "super+ctrl+w=close_surface"
       ];
     };
   };
