@@ -166,7 +166,7 @@ in
     unrar
 
     # ia
-    ollama
+    # ollama
     llm-agents.gemini-cli
     llm-agents.claude-code
     # llm-agents.rtk
@@ -177,14 +177,7 @@ in
   home.sessionVariables = {
     EDITOR = "nvim";
     ZSH_TMUX_AUTOSTART = "false";
-    # GDK_BACKEND = "x11";
-    # LIBGL_ALWAYS_SOFTWARE = "1";
   };
-
-  # systemd.user.sessionVariables = {
-  #   GDK_BACKEND = "x11";
-  # };
-
 
   sops.secrets.atuin_key = {
     sopsFile = ../secrets/secrets.yaml;
@@ -221,10 +214,10 @@ in
 
   programs.ghostty = {
     enable = true;
-    package = unstable.ghostty;
+    package = config.lib.nixGL.wrap unstable.ghostty;
     enableZshIntegration = true;
     settings = {
-      theme = "catppuccin-mocha";
+      theme = "Catppuccin Mocha";
       keybind = [
         "super+ctrl+h=goto_split:left"
         "super+ctrl+l=goto_split:right"
@@ -267,5 +260,10 @@ in
   # services.dropbox.enable = true;  # not able to start dropbox with nix on ubuntu
   # services.nextcloud-client.enable = true;
   targets.genericLinux.enable = true;
+  # Ghostty (from nixpkgs-unstable) fails with "Failed to create EGL display" /
+  # "Unable to acquire an OpenGL context" on this Ubuntu+Mesa host — a known issue
+  # with Nix-built GTK apps on non-NixOS systems. nixGL wraps it to use the host's
+  # own Mesa/EGL stack instead.
+  nixGL.packages = inputs.nixGL.packages;
   programs.home-manager.enable = true;
 }
