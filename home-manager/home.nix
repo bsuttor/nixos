@@ -104,6 +104,7 @@ in
     git
     tig
     direnv
+    just # A command runner for Justfiles
     # unstable.postman
     volta
 
