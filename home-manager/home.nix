@@ -62,6 +62,16 @@ in
     age.keyFile = "/home/bsuttor/.config/sops/age/key.txt";
     #defaultSymlinkPath = "/run/user/1000/secrets";
     #defaultSecretsMountPoint = "/run/user/1000/secrets.d";
+    # sops-nix now requires go >= 1.26, newer than nixpkgs' buildGoModule
+    # default (pinned to buildGo124Module, go 1.24.10, independent of the
+    # `go` package version). Override buildGoModule itself with a variant
+    # using unstable's go so both the build and its vendoring FOD pick it up.
+    package =
+      (pkgs.callPackage inputs.sops-nix {
+        pkgs = pkgs.extend (final: prev: {
+          buildGoModule = prev.buildGoModule.override { go = unstable.go; };
+        });
+      }).sops-install-secrets;
   };
 
   imports = [
