@@ -115,7 +115,7 @@ in
     tig
     direnv
     just # A command runner for Justfiles
-    # unstable.postman
+    bruno # API client (replaces postman)
     volta
 
     # Kubernetes
