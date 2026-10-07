@@ -77,6 +77,7 @@ in
   imports = [
     inputs.sops-nix.homeManagerModules.sops
     ./apps/atuin.nix
+    ./apps/bat.nix
     ./apps/direnv.nix
     ./apps/git.nix
     ./apps/gnome.nix

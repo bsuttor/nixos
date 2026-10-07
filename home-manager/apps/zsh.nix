@@ -8,6 +8,7 @@
     autocd = true;
     shellAliases = {
       ll = "ls -lah";
+      cat = "bat";
       switch-home-manager = "home-manager switch --flake ~/nix/#$USER && source ~/.zshrc";
       eset-status = "sudo systemctl status eea.service";
       eset-stop = "sudo systemctl stop eea.service && sudo systemctl stop eraagent.service";
