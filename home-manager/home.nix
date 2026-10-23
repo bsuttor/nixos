@@ -196,6 +196,9 @@ in
   };
   programs.atuin = {
     enable = true;
+    # 25.05's atuin bundles its own CA list (incl. compromised eMudhra intermediates);
+    # >= 18.12 uses system certificates.
+    package = unstable.atuin;
     enableZshIntegration = true;
     settings = {
       key_path = config.sops.secrets.atuin_key.path;
