@@ -229,7 +229,15 @@ in
 
   programs.ghostty = {
     enable = true;
-    package = config.lib.nixGL.wrap unstable.ghostty;
+    # nixGL.wrap uses overrideAttrs, which keeps ghostty's zig build deps
+    # (ghostty-cache) as inputs of the wrapper. Fetching them unpacks wuffs
+    # test files that ESET quarantines, so drop them: the wrapper only
+    # symlinks the already-cached ghostty outputs.
+    package = (config.lib.nixGL.wrap unstable.ghostty).overrideAttrs (_: {
+      deps = "";
+      zigBuildFlags = [ ];
+      zigCheckFlags = [ ];
+    });
     enableZshIntegration = true;
     settings = {
       theme = "Catppuccin Mocha";
